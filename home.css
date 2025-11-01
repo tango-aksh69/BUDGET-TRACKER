@@ -1,0 +1,424 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #efdfbb;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+header {
+  background-color: #262424;
+  color: #eee5da;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 50px;
+  border-radius: 0px 0px 50px 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header h1 {
+  margin-bottom: 20px;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+}
+
+header a {
+  color: #eee5da;
+  text-decoration: none;
+  padding: 0 80px;
+  position: relative;
+  transition: color 1s ease;
+}
+
+header a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #efdfbb;
+  transform: scaleX(0);
+  transition: transform 1s ease;
+}
+
+header a:hover::after {
+  transform: scaleX(1);
+}
+
+
+.report-section {
+  background-color: #efdfbb;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+
+.summary-bar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1f1f1f;
+  padding: 15px 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.label {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.summary-bar h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c1c1c;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 18px;
+}
+
+.details h4 {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.amount {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.amount.positive { color: #4caf50; }
+.amount.negative { color: #f44336; }
+
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav-item i {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: #fdd835;
+}
+
+
+.nav-add {
+  background-color: #fdd835;
+  color: #000;
+  font-size: 30px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -35px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.nav-add:hover {
+  transform: scale(1.1);
+}
+
+
+.popup {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: bottom 0.4s ease;
+  z-index: 999;
+}
+
+.popup.active {
+  bottom: 0;
+}
+
+.popup-content {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.popup-content h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.popup-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popup-content input,
+.popup-content select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.add-btn {
+  background: #fdd835;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ddd;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#reportModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#reportModal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #222;
+  color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.close-btn {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  color: #f77;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+.report-summary p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.report-chart {
+  margin-top: 20px;
+}
+
+.bar {
+  margin: 10px 0;
+}
+
+.income-bar,
+.expense-bar {
+  height: 20px;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.income-bar {
+  background: #f7d96f;
+  width: 0;
+}
+
+.expense-bar {
+  background: #f7a5a5;
+  width: 0;
+}
+
+.report-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #f7d96f;
+  color: #333;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.report-btn:hover {
+  background: #f9e78a;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    gap: 12px;
+  }
+
+  .modal-content h2 {
+    font-size: 20px;
+  }
+
+  .add-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    bottom: 25px;
+    right: 25px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px 20px;
+    border-radius: 0 0 30px 30px;
+  }
+
+  header h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  header a {
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  .summary-bar {
+    padding: 10px 8px;
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .summary-bar h3 {
+    font-size: 15px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .bottom-nav {
+    padding: 8px 0;
+  }
+
+  .nav-add {
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
+    margin-top: -28px;
+  }
+
+  .nav-item i {
+    font-size: 18px;
+  }
+
+  .nav-item {
+    font-size: 12px;
+  }
+
+  .popup-content,
+  .modal-content {
+    max-width: 350px;
+    padding: 15px;
+  }
+}

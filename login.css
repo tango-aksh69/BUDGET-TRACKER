@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+body {
+  height: 100vh;
+  background-color: #eee5da;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.loginContainer {
+  background: #ffffff;
+  width: 750px;                
+  padding: 80px 70px;          
+  border-radius: 25px;
+  box-shadow: 0 8px 45px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.loginContainer:hover {
+  transform: scale(1.02);
+}
+
+
+.loginContainer h2 {
+  margin-bottom: 40px;
+  color: #2c2c2c;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.input-box {
+  margin: 25px 0;
+  text-align: left;
+}
+
+.input-box label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 18px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  font-size: 17px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus {
+  border-color: #6f4e37;
+  box-shadow: 0 0 12px rgba(111, 78, 55, 0.3);
+}
+
+
+.btn {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 12px;
+  background: #6f4e37;
+  color: #eee5da;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 35px;
+  transition: 0.3s;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: #5a402d;
+  transform: scale(1.03);
+}
+
+
+.links {
+  margin-top: 30px;
+  font-size: 17px;
+}
+
+.links a {
+  color: #6f4e37;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .loginContainer {
+    width: 90%;
+    padding: 60px 50px;
+  }
+
+  .loginContainer h2 {
+    font-size: 2rem;
+  }
+
+  .input-box label {
+    font-size: 16px;
+  }
+
+  .input-box input {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .btn {
+    font-size: 18px;
+    padding: 16px;
+  }
+
+  .links {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginContainer {
+    width: 100%;
+    padding: 40px 25px;
+    border-radius: 20px;
+  }
+
+  .loginContainer h2 {
+    font-size: 1.8rem;
+  }
+
+  .input-box {
+    margin: 20px 0;
+  }
+
+  .input-box label {
+    font-size: 15px;
+  }
+
+  .input-box input {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .links {
+    font-size: 14px;
+  }
+}

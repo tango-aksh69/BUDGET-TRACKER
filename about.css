@@ -1,0 +1,147 @@
+header {
+  background-color: #262424;
+  color: #eee5da;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 50px;   
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;         
+  width: 100%;          
+  z-index: 1000;
+}
+
+header h1 {
+  margin-bottom: 20px;
+  color: #eee5da;
+}
+
+header nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header a {
+  color: #eee5da;
+  text-decoration: none;
+  padding: 0 24px;     
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+header a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #efdfbb;
+  transform: scaleX(0);
+  transition: transform 1s ease;
+}
+
+header a:hover::after {
+  transform: scaleX(1);
+}
+
+.about-container {
+  text-align: left;
+}
+
+.about-container h2 {
+  color: #6f4e37;
+  text-align: center;
+
+  margin-top: 150px;
+  font-size: 2rem;
+}
+
+.about-container p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.info-list {
+  list-style-type: disc;
+  margin-left: 40px;
+  margin-bottom: 25px;
+}
+
+.info-list li {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 1rem;
+}
+
+.why {
+  background-color: #f9f5f0;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.teammember {
+  background: #fff8f3;
+  border: 2px solid #6f4e37;
+  border-radius: 15px;
+  padding: 20px 30px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.teammember:hover {
+  transform: scale(1.05);
+}
+
+.teammember h4 {
+  color: #6f4e37;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.teammember a {
+  color: #5a402d;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.teammember a:hover {
+  text-decoration: underline;
+}
+
+.teamfooter {
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 600;
+  color: #6f4e37;
+}
+
+
+@media (max-width: 1024px) {
+  header { padding: 15px 30px; }
+  header a { padding: 0 18px; font-size: 17px; }
+}
+
+@media (max-width: 600px) {
+  header { padding: 14px 18px; }
+  header h1 { font-size: 1.4rem; margin-bottom: 12px; }
+  header a { padding: 6px 12px; font-size: 15px; }
+}
